@@ -1,0 +1,64 @@
+<project name="svn" basedir="." default="clean">
+
+<property name="svn" value="E:/svn"/>
+<property name="src" value="${svn}/src_file"/>
+<property name="class" value="${svn}/class_file"/>
+<property name="db" value="${svn}/database_file"/>
+<property name="text" value="${svn}/text_files"/>
+<property name="prop" value="${svn}/property_files"/>
+
+<!-- Creating Structure -->
+
+<target name="create" description="Creating Structure">
+<mkdir dir="${svn}"/>
+<mkdir dir="${src}"/>
+<mkdir dir="${class}"/>
+<mkdir dir="${db}"/>
+<mkdir dir="${text}"/>
+<mkdir dir="${prop}"/>
+</target>
+
+<!-- Copying The Files -->
+<target name="copy" description="Copying files" depends="create">
+<copy todir="${src}">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
+<include name="**/*.java"/>
+</fileset>
+</copy>
+
+<copy todir="${txt}">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
+<include name="**/*.txt"/>
+</fileset>
+</copy>
+
+<copy todir="${prop}">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
+<include name="**/*.properties"/>
+</fileset>
+</copy>
+
+<copy todir="${db}">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
+<include name="**/*.database"/>
+</fileset>
+</copy>
+
+</target>
+
+<!-- Compiling Java Files -->
+<target name="compile" description="Copying files" depends="copy">
+<javac srcdir="${src}" destdir="${class}" includeantruntime="false"/>
+</target>
+
+<!-- Packaging The Class Files -->
+<target name="package" description="Packaging The Class Files" depends="compile">
+<war destfile="C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps/classfile.war" basedir="${class}" needxmlfile="false"/>
+</target>
+
+<!-- Cleaning The Folders -->
+<target name="clean" description="Cleaning The Structure" depends="package">
+<delete dir="${svn}"/>
+</target>
+
+</project>
