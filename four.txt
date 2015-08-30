@@ -1,1 +1,3 @@
 Hi this is for testing jira integrtion with git
+
+this is for testing jira when commit happend in git jira automatically stores commit history
