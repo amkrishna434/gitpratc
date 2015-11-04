@@ -1,4 +1,4 @@
-<project name="svn" basedir="." default="clean">
+<project name="svn" basedir="." default="package">
 
 <property name="svn" value="E:/svn"/>
 <property name="src" value="${svn}/src_file"/>
@@ -7,9 +7,14 @@
 <property name="text" value="${svn}/text_files"/>
 <property name="prop" value="${svn}/property_files"/>
 
+<!-- Cleaning The Folders -->
+<target name="clean" description="Cleaning The Structure">
+<delete dir="${svn}"/>
+</target>
+
 <!-- Creating Structure -->
 
-<target name="create" description="Creating Structure">
+<target name="create" description="Creating Structure" depends="clean">
 <mkdir dir="${svn}"/>
 <mkdir dir="${src}"/>
 <mkdir dir="${class}"/>
@@ -54,11 +59,6 @@
 <!-- Packaging The Class Files -->
 <target name="package" description="Packaging The Class Files" depends="compile">
 <war destfile="C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps/classfile.war" basedir="${class}" needxmlfile="false"/>
-</target>
-
-<!-- Cleaning The Folders -->
-<target name="clean" description="Cleaning The Structure" depends="package">
-<delete dir="${svn}"/>
 </target>
 
 </project>
