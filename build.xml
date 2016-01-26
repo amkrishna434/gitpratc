@@ -26,25 +26,25 @@
 <!-- Copying The Files -->
 <target name="copy" description="Copying files" depends="create">
 <copy todir="${src}">
-<fileset dir="https://github.com/amkrishna434/gitpratc/master">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
 <include name="**/*.java"/>
 </fileset>
 </copy>
 
 <copy todir="${txt}">
-<fileset dir="https://github.com/amkrishna434/gitpratc/master">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
 <include name="**/*.txt"/>
 </fileset>
 </copy>
 
 <copy todir="${prop}">
-<fileset dir="https://github.com/amkrishna434/gitpratc/master">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
 <include name="**/*.properties"/>
 </fileset>
 </copy>
 
 <copy todir="${db}">
-<fileset dir="https://github.com/amkrishna434/gitpratc/master">
+<fileset dir="https://github.com/amkrishna434/gitpratc/tree/master">
 <include name="**/*.database"/>
 </fileset>
 </copy>
